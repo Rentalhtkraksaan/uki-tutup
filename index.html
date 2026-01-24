@@ -3,93 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batch 1 Closed - Booking Batch 2</title>
+    <title>Informasi Pesanan - Batch 2 Segera Hadir</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #0f172a;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow: hidden; }
         .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .bg-mesh {
-            background-color: #0f172a;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%);
+        .bg-animated {
+            background: linear-gradient(-45deg, #6366f1, #a855f7, #ec4899, #f59e0b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
-        .btn-grad {
-            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
-            transition: all 0.3s ease;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .btn-grad:hover {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-            transform: translateY(-2px);
-        }
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        /* Animasi Transisi */
+        #splash-screen {
+            transition: all 0.5s ease-in-out;
+            z-index: 100;
         }
     </style>
 </head>
-<body class="bg-mesh min-h-screen flex items-center justify-center p-6 overflow-hidden">
-    
-    <div class="max-w-md w-full text-center relative">
-        <div class="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/20 rounded-full blur-[80px]"></div>
-        <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-pink-500/20 rounded-full blur-[80px]"></div>
+<body class="bg-animated min-h-screen flex items-center justify-center p-4 md:p-6">
 
-        <div class="glass floating rounded-[3rem] p-10 md:p-14 relative z-10 overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+    <div id="splash-screen" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-[2rem] max-w-lg w-full p-6 md:p-8 shadow-2xl transform transition-all">
+            <h2 class="text-2xl font-extrabold text-slate-800 mb-6 flex items-center gap-2">
+                <span class="bg-indigo-100 p-2 rounded-lg">📅</span> Timeline Pesanan
+            </h2>
             
-            <div class="mb-8 inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-[0.3em]">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                Batch 1 Full
+            <div class="space-y-6 text-sm md:text-base">
+                <div class="border-l-4 border-indigo-500 pl-4">
+                    <h3 class="font-bold text-indigo-600 uppercase tracking-wider text-xs mb-2">Batch 1</h3>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Order: <span class="font-semibold text-slate-800">22-24 Jan</span></li>
+                        <li>• Validasi Data: <span class="font-semibold text-slate-800">24-25 Jan</span></li>
+                        <li>• Pembuatan: <span class="font-semibold text-slate-800">± 1 Minggu</span></li>
+                        <li>• Diterima: <span class="font-semibold text-slate-800">2/3 Februari</span></li>
+                    </ul>
+                </div>
+
+                <div class="border-l-4 border-emerald-500 pl-4">
+                    <h3 class="font-bold text-emerald-600 uppercase tracking-wider text-xs mb-2">Batch 2</h3>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Order: <span class="font-semibold text-slate-800">26-30 Jan</span></li>
+                        <li>• Validasi Data: <span class="font-semibold text-slate-800">30-31 Jan</span></li>
+                        <li>• Pembuatan: <span class="font-semibold text-slate-800">± 1 Minggu</span></li>
+                        <li>• Diterima: <span class="font-semibold text-slate-800">10 Februari</span></li>
+                    </ul>
+                </div>
             </div>
 
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Batch 1 <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-300">Closed!</span>
-            </h1>
-            
-            <p class="text-slate-400 text-sm md:text-base mb-10 leading-relaxed font-light">
-                Terima kasih atas antusiasme luar biasa! Pendaftaran batch pertama resmi berakhir. Amankan antreanmu untuk <span class="text-white font-semibold">Batch 2</span> sekarang.
-            </p>
-
-            <div class="relative group">
-                <a href="https://wa.me/6281252669990?text=Halo%20Lukman%2C%20saya%20mau%20booking%20slot%20untuk%20Batch%202"
-                   target="_blank"
-                   class="btn-grad flex items-center justify-center gap-3 text-white font-bold py-5 px-8 rounded-2xl shadow-lg text-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                    </svg>
-                    Booking Slot Batch 2
-                </a>
+            <div class="mt-8 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                <p class="text-xs text-amber-700 leading-relaxed italic">
+                    <strong>NB:</strong> Pembuatan menyesuaikan antrian pembeli, harap sabar ya guyss!
+                </p>
             </div>
 
-            <p class="mt-10 text-[10px] text-white/30 font-semibold uppercase tracking-[0.4em]">
-                Limited Booking Only
-            </p>
-        </div>
-        
-        <div class="mt-8 space-y-1">
-            <p class="text-white/40 text-xs font-medium uppercase tracking-widest">
-                &copy; 2026 Management
-            </p>
-            <p class="text-white/60 text-sm font-bold tracking-tight">
-                LUKMAN SHOP
-            </p>
+            <button onclick="closeSplash()" class="w-full mt-6 bg-slate-900 hover:bg-indigo-600 text-white font-bold py-4 rounded-xl transition-all active:scale-95 shadow-lg">
+                Saya Sudah Baca
+            </button>
         </div>
     </div>
 
+    <div id="main-content" class="max-w-2xl w-full text-center">
+        <div class="glass rounded-[2.5rem] p-6 md:p-12 shadow-2xl shadow-indigo-500/20">
+            <div class="mb-6 inline-block bg-red-100 text-red-600 text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest animate-pulse">
+                Registration Closed
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight">
+                Batch 2 <span class="text-indigo-600">Coming Soon</span>
+            </h1>
+            
+            <p class="text-slate-500 text-sm md:text-lg mb-8 leading-relaxed">
+                Maaf, Batch 1 sudah penuh! Kami sedang menyiapkan slot baru untukmu. <br class="hidden md:block"> Jangan sampai ketinggalan Batch 2 pada:
+            </p>
+
+            <div class="bg-slate-900 text-white py-5 px-10 rounded-2xl mb-8 inline-block shadow-xl transform transition hover:scale-105">
+                <p class="font-bold text-xl mb-1">Senin, 26 Januari 2026</p>
+                <p class="text-indigo-400 text-sm font-mono tracking-widest uppercase">Pukul 09:00 WIB</p>
+            </div>
+
+            <div class="grid grid-cols-4 gap-2 md:gap-4 mb-10">
+                <div class="bg-white border border-slate-100 p-3 md:p-4 rounded-2xl shadow-sm">
+                    <div id="days" class="text-xl md:text-3xl font-extrabold text-slate-800">00</div>
+                    <div class="text-[9px] uppercase text-slate-400 font-bold mt-1">Hari</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-3 md:p-4 rounded-2xl shadow-sm">
+                    <div id="hours" class="text-xl md:text-3xl font-extrabold text-slate-800">00</div>
+                    <div class="text-[9px] uppercase text-slate-400 font-bold mt-1">Jam</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-3 md:p-4 rounded-2xl shadow-sm">
+                    <div id="minutes" class="text-xl md:text-3xl font-extrabold text-slate-800">00</div>
+                    <div class="text-[9px] uppercase text-slate-400 font-bold mt-1">Menit</div>
+                </div>
+                <div class="bg-white border border-slate-100 p-3 md:p-4 rounded-2xl shadow-sm ring-2 ring-indigo-500">
+                    <div id="seconds" class="text-xl md:text-3xl font-extrabold text-indigo-600">00</div>
+                    <div class="text-[9px] uppercase text-slate-400 font-bold mt-1">Detik</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/6281252669990?text=Halo%20Admin%2C%20saya%20ingin%20booking%20slot%20untuk%20Batch%202"
+                    target="_blank"
+                   class="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-lg">
+                    Booking Batch 2 (WA)
+                </a>
+                <button onclick="addToCalendar()"
+                    class="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-lg">
+                    Ingatkan Saya
+                </button>
+            </div>
+        </div>
+        <p class="mt-8 text-white/70 text-sm">
+            &copy; 2026 Management Pesanan ID Card
+        </p>
+    </div>
+
+    <script>
+        // Fungsi Tutup Splash Screen
+        function closeSplash() {
+            const splash = document.getElementById('splash-screen');
+            splash.style.opacity = '0';
+            splash.style.pointerEvents = 'none';
+            document.body.style.overflow = 'auto'; // Aktifkan scroll
+        }
+
+        // TARGET WAKTU (26 Jan 2026 09:00)
+        const countDownDate = new Date("Jan 26, 2026 09:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+
+        function addToCalendar() {
+            const title = encodeURIComponent("🚀 PEMBUKAAN BATCH 2 - ID CARD");
+            const details = encodeURIComponent("Segera daftar! Batch 2 sudah resmi dibuka sekarang.");
+            const location = encodeURIComponent("WhatsApp Admin / Website");
+            const startDate = "20260126T020000Z"; 
+            const endDate = "20260126T030000Z";
+            const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}&sf=true&output=xml`;
+            window.open(calendarUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
